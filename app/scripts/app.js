@@ -2,35 +2,37 @@
 
 /**
  * @ngdoc overview
- * @name myArticleAppApp
+ * @name myArticleApp
  * @description
- * # myArticleAppApp
+ * # myArticleApp
  *
  * Main module of the application.
  */
 angular
-  .module('myArticleAppApp', [
-    'ngAnimate',
-    'ngCookies',
-    'ngMessages',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch'
-  ])
-  .config(function ($routeProvider) {
+    .module('myArticleApp', [
+        'ngAnimate',
+        'ngCookies',
+        'ngMessages',
+        'ngResource',
+        'ngRoute',
+        'ngSanitize',
+        'ngTouch'
+    ])
+    .config(configure);
+
+configure.$inject = ['$routeProvider', '$locationProvider'];
+
+function configure($routeProvider, $locationProvider) {
+    // fix angularjs 1.6.x route prefix, more: https://stackoverflow.com/questions/41211875/angularjs-1-6-0-latest-now-routes-not-working
+    $locationProvider.hashPrefix('');
+
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-  });
+        .when('/', {
+            templateUrl: 'views/articles.html',
+            controller: 'ArticlesCtrl',
+            controllerAs: 'vm'
+        })
+        .otherwise({
+            redirectTo: '/'
+        });
+}

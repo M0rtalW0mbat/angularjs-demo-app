@@ -1,0 +1,28 @@
+<div>
+    <button ng-click="vm.createArticle()" class="btn btn-success btn-sm">Create article</button>
+    <p></p>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th style="min-width: 80px;">Title</th>
+                <th style="min-width: 80px;">Date</th>
+                <th style="width:20px;"> </th>
+                <th style="width:20px;"> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="article in vm.articles">
+                <td>{{ $index }}</td>
+                <td>{{ article.title }}</td>
+                <td>{{ article.creationDate }}</td>
+                <td>
+                    <button ng-click="vm.editArticle(article.id)" class="btn btn-primary btn-sm">Edit</button>
+                </td>
+                <td>
+                    <button ng-click="vm.deleteArticle(article.id)" class="btn btn-danger btn-sm">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
