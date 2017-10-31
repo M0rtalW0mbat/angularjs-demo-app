@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * @ngdoc overview
  * @name myArticleApp
@@ -8,31 +6,45 @@
  *
  * Main module of the application.
  */
-angular
-    .module('myArticleApp', [
-        'ngAnimate',
-        'ngCookies',
-        'ngMessages',
-        'ngResource',
-        'ngRoute',
-        'ngSanitize',
-        'ngTouch'
-    ])
-    .config(configure);
+(function() {
+    'use strict';
 
-configure.$inject = ['$routeProvider', '$locationProvider'];
+    angular
+        .module('myArticleApp', [
+            'ngAnimate',
+            'ngCookies',
+            'ngMessages',
+            'ngResource',
+            'ngRoute',
+            'ngSanitize',
+            'ngTouch'
+        ])
+        .config(configure);
 
-function configure($routeProvider, $locationProvider) {
-    // fix angularjs 1.6.x route prefix, more: https://stackoverflow.com/questions/41211875/angularjs-1-6-0-latest-now-routes-not-working
-    $locationProvider.hashPrefix('');
+    configure.$inject = ['$routeProvider', '$locationProvider'];
 
-    $routeProvider
-        .when('/', {
-            templateUrl: 'views/articles.html',
-            controller: 'ArticlesCtrl',
-            controllerAs: 'vm'
-        })
-        .otherwise({
-            redirectTo: '/'
-        });
-}
+    function configure($routeProvider, $locationProvider) {
+        // fix angularjs 1.6.x route prefix, more: https://stackoverflow.com/questions/41211875/angularjs-1-6-0-latest-now-routes-not-working
+        $locationProvider.hashPrefix('');
+
+        $routeProvider
+            .when('/', {
+                templateUrl: 'views/articles.html',
+                controller: 'ArticlesCtrl',
+                controllerAs: 'vm'
+            })
+            .when('/create', {
+                templateUrl: 'views/createArticle.html',
+                controller: 'CreateArticleCtrl',
+                controllerAs: 'vm'
+            })
+            .when('/edit/:Id', {
+                templateUrl: 'views/editArticle.html',
+                controller: 'EditArticleCtrl',
+                controllerAs: 'vm'
+            })
+            .otherwise({
+                redirectTo: '/'
+            });
+    }
+})();
