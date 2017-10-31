@@ -18,6 +18,11 @@
   "appPath": "app",
   "moduleName": "myArticleAppApp",
   "overrides": {
+    "angular": {
+        "dependencies": {
+        "jquery": "*"
+        }
+    },
     "bootstrap": {
       "main": [
         "less/bootstrap.less",
