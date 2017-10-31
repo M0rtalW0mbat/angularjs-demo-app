@@ -1,4 +1,4 @@
-<div>
+<div class="container">
     <button ng-click="vm.createArticle()" class="btn btn-success btn-sm">Create article</button>
     <p></p>
     <table class="table table-bordered table-hover">
@@ -14,13 +14,13 @@
         <tbody>
             <tr ng-repeat="article in vm.articles">
                 <td>{{ $index }}</td>
-                <td>{{ article.title }}</td>
-                <td>{{ article.creationDate }}</td>
+                <td>{{ article.Title }}</td>
+                <td>{{ article.CreationDate }}</td>
                 <td>
-                    <button ng-click="vm.editArticle(article.id)" class="btn btn-primary btn-sm">Edit</button>
+                    <button ng-click="vm.editArticle(article.Id)" class="btn btn-primary btn-sm">Edit</button>
                 </td>
                 <td>
-                    <button ng-click="vm.deleteArticle(article.id)" class="btn btn-danger btn-sm">Delete</button>
+                    <button ng-click="vm.deleteArticle(article.Id)" class="btn btn-danger btn-sm">Delete</button>
                 </td>
             </tr>
         </tbody>
