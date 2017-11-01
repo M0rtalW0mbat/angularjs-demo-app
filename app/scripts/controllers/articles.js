@@ -6,10 +6,7 @@
  * Controller of the myArticleApp
  */
 
-// TODO try/catch?
-// TODO rename factories
-// TODO moment.js for Date format and tz offset(utc date on back-end)
-// TODO docs
+// TODO try/catch for interaction with back-end, notifications for user
 
 (function() {
     'use strict';
@@ -22,8 +19,6 @@
     function ArticlesCtrl(articlesFactory, articleFactory, $location) {
         var vm = this;
 
-        // TODO loading screen?
-        // TODO move to onLoad? move to activate?
         vm.articles = articlesFactory.query();
 
         activate();
