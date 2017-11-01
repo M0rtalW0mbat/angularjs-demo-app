@@ -24,15 +24,20 @@
         ////////////////
 
         function activate() {
-            vm.createArticle = createArticle;
+            vm.saveChanges = saveChanges;
+            vm.cancelChanges = cancelChanges;
         }
 
-        function createArticle() {
+        function saveChanges() {
             articlesFactory
                 .create(vm.article)
                 .$promise.then(function() {
                     $location.path('/');
                 });
+        }
+
+        function cancelChanges() {
+            $location.path('/');
         }
     }
 })();
