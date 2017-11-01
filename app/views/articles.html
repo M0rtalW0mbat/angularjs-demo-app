@@ -12,8 +12,8 @@
                     <th>#</th>
                     <th>Title</th>
                     <th>Date</th>
-                    <th style="width:20px;"></th>
-                    <th style="width:20px;"></th>
+                    <th class="button-cell"></th>
+                    <th class="button-cell"></th>
                 </tr>
             </thead>
             <tbody>
@@ -21,13 +21,13 @@
                     <td>{{$index}}</td>
                     <td>{{article.Title}}</td>
                     <td>{{article.CreationDate | utcToLocal:'dd.MM.yyyy HH:mm'}}</td>
-                    <td>
+                    <td class="button-cell">
                         <button type="button" ng-click="vm.editArticle(article.Id)" class="btn btn-primary btn-sm">
                             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                             <!-- Edit -->
                         </button>
                     </td>
-                    <td>
+                    <td class="button-cell">
                         <button type="button" ng-click="vm.deleteArticle(article.Id)" class="btn btn-danger btn-sm">
                             <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                             <!-- Delete -->
