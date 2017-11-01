@@ -11,13 +11,13 @@
 
     angular
         .module('myArticleApp', [
-            'ngAnimate',
-            'ngCookies',
-            'ngMessages',
+            //'ngAnimate',
+            //'ngCookies',
+            //'ngMessages',
             'ngResource',
             'ngRoute',
-            'ngSanitize',
-            'ngTouch'
+            //'ngSanitize',
+            //'ngTouch'
         ])
         .config(configure);
 
